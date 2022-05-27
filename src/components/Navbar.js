@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Navbar = (props) => {
+const Navbar = () => {
   return (
     <div id='navbar' className='row'>
       <a>Stories</a>
