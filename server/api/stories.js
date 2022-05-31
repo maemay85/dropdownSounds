@@ -19,7 +19,7 @@ router.get('/', async (req, res, next) => {
 // GET /api/stories/:storyId
 router.get('/:storyId', async (req, res, next) => {
   try {
-    const story = await Story.findById(req.params.storyId, {
+    const story = await Story.findByPk(req.params.storyId, {
       include: [Author, {model: Comment, include: Author}]
     })
     res.json(story)
