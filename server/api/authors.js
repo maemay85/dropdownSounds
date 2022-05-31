@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
 // GET /api/authors/:authorId
 router.get('/:authorId', async (req, res, next) => {
   try {
-    const author = await Author.findById(req.params.authorId)
+    const author = await Author.findByPk(req.params.authorId)
     res.json(author)
   }
   catch (error) {
