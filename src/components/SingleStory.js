@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import CommentsList from './CommentsList';
 import { selectSingleStory, fetchSingleStory } from "../features/singleStory/singleStorySlice";
 
 const SingleStory = () => {
@@ -11,7 +12,7 @@ const SingleStory = () => {
   const { content, comments, title } = singleStory;
 
   useEffect(()=> {
-    dispatch(fetchSingleStory(storyId));}, [dispatch]);
+    dispatch(fetchSingleStory(storyId))}, [dispatch]);
 
 
   return (
@@ -23,23 +24,7 @@ const SingleStory = () => {
         <p key={`Inside of content.split.map in single story${idx}`}>{line}</p>
       )) : null}
     <h3>Responses:</h3>
-    <div id="comments">
-      <div className="comment row">
-        {comments && comments.length ? (
-          <>
-            <img src={`/${comments[0].author.imageUrl}`} />
-            <div className="column">
-              <a>
-                <h5>{comments[0].author.name}</h5>
-              </a>
-              <div>{comments[0].content}</div>
-            </div>
-          </>) : null}
-      </div>
-
-
-
-    </div>
+    <CommentsList comments={comments} />
   </div>
   )
 

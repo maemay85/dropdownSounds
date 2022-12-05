@@ -1,14 +1,15 @@
-import React, {useEffect} from "react";
-import { Navbar, StoriesList, SingleStory } from "./";
+import React, { useEffect } from "react";
+import { Navbar, AllStories, AllAuthors, SingleStory, SingleAuthor } from "./";
+import { Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAuthorsAsync } from "../features/authors/authorsSlice";
 import { fetchStoriesAsync } from "../features/stories/storiesSlice";
-import { Routes, Route } from 'react-router-dom';
-import { useDispatch } from "react-redux";
-
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(fetchAuthorsAsync());
     dispatch(fetchStoriesAsync());
   }, [dispatch]);
 
@@ -17,14 +18,16 @@ const App = () => {
       <div className="column container">
         <div id="header">
           <h1>Readium</h1>
+          <Navbar />
         </div>
-        <Navbar />
       </div>
       <Routes>
-       <Route path='/stories' element={<StoriesList />} />
-       <Route path='/single-story' element = {<SingleStory />} />
+        <Route path="/stories" element={<AllStories />} />
+        <Route path="/authors" element={<AllAuthors />} />
+        <Route path="/stories/:storyId/*" element={<SingleStory />} />
+        <Route path="/authors/:authorId/*" element={<SingleAuthor />} />
+        <Route path="/" element={<AllStories />} />
       </Routes>
-
     </div>
   );
 };
