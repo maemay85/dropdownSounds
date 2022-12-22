@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-router.use('/stories', require('./stories'))
-router.use('/authors', require('./authors'))
+router.use('/chords', require('./chords'))
+router.use('/keys', require('./keys'))
 
 module.exports = router

@@ -1,80 +1,28 @@
 #!/usr/bin/env node
 
-const hipsum = require('lorem-hipsum')
-const {db, Author, Comment, Story} = require('../server/db')
-
-const loremHipsum = () => hipsum({
-  count: 3,
-  units: 'paragraphs',
-  paragraphLowerBound: 3,
-  paragraphUpperBound: 15,
-  format: 'plain'
-})
+const {db, Key, Note, Chord} = require('../server/db')
 
 const seed = async () => {
   await db.sync({force: true})
 
-  const cody = await Author.create({name: 'Cody', bio: 'A friendly pug', imageUrl: 'cody.jpg'})
-  const fira = await Author.create({name: 'Fira', bio: 'A friendly python', imageUrl: 'fira.jpg'})
-  const earl = await Author.create({name: 'Earl', bio: 'A somewhat less friendly cat', imageUrl: 'earl.png'})
+/* CONSIDER:
 
-  const story1 = await Story.create({
-    title: 'A bone to pick with jQuery',
-    content: loremHipsum(),
-    imageUrl: '',
-    authorId: cody.id
-  })
+const notes = [c2, d2, e2, f2, g2, a2, b2]
+notes.map(note => { await Promise.all(Note.create()
+) }) */
 
-  const story2 = await Story.create({
-    title: 'How to React (to treats!)',
-    content: loremHipsum(),
-    imageUrl: '',
-    authorId: cody.id
-  })
+  const [c2, d2, e2, f2, g2, a2, b2] = await Promise.all([Note.create({name: 'c2', audioUrl: './audio/c2.mp3'}), Note.create({name: 'd2'}), Note.create({name: 'e2'}), Note.create({name: 'f2'}), Note.create({name: 'g2'}), Note.create({name: 'a2'}), Note.create({name: 'b2'})]);
 
-  const story3 = await Story.create({
-    title: 'Functional programming with python',
-    content: loremHipsum(),
-    imageUrl: '',
-    authorId: fira.id
-  })
+  const [cMaj, dMin, eMin] = await Promise.all([Chord.create({name: 'cMaj'}), Chord.create({name: 'dMin'}), Chord.create({name: 'emin'})]);
 
-  const story4 = await Story.create({
-    title: 'Angular: time for the litter box',
-    content: loremHipsum(),
-    imageUrl: '',
-    authorId: earl.id
-  })
+  const cMajor = await Key.create({name: 'C Major'})
 
-  await Comment.create({
-    content: 'I love this article as much as I hate dogs',
-    authorId: earl.id,
-    storyId: story1.id
-  })
+  await cMaj.addNotes([c2, e2, g2])
+  await dMin.addNotes([d2, f2, a2])
+  await eMin.addNotes([e2, g2, b2])
 
-  await Comment.create({
-    content: 'I wish JavaScript variables were in snake_case!',
-    authorId: fira.id,
-    storyId: story1.id
-  })
+  await cMajor.addChords([cMaj, dMin, eMin])
 
-  await Comment.create({
-    content: 'Do you have an example of using a constrictor...I mean, constructor function?',
-    authorId: fira.id,
-    storyId: story2.id
-  })
-
-  await Comment.create({
-    content: 'I love this article as much as I love treats',
-    authorId: cody.id,
-    storyId: story3.id
-  })
-
-  await Comment.create({
-    content: 'Angular\'s really in the doghouse!',
-    authorId: cody.id,
-    storyId: story4.id
-  })
 
   db.close()
   console.log(`

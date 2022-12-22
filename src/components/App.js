@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Navbar, AllStories, AllAuthors, SingleStory, SingleAuthor } from "./";
 import { Routes, Route } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchAuthorsAsync } from "../features/authors/authorsSlice";
 import { fetchStoriesAsync } from "../features/stories/storiesSlice";
 

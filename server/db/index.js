@@ -1,20 +1,21 @@
 const db = require('./db')
-const Author = require('./Author')
-const Comment = require('./Comment')
-const Story = require('./Story')
+const Key = require('./Key')
+const Note = require('./Note')
+const Chord = require('./Chord')
 
-Author.hasMany(Story)
-Story.belongsTo(Author)
+Key.belongsToMany(Chord, { through: 'KeyChords' });
+Chord.belongsToMany(Key, { through: 'KeyChords' });
 
-Author.hasMany(Comment)
-Comment.belongsTo(Author)
+Chord.belongsToMany(Note, { through: 'ChordNotes' });
+Note.belongsToMany(Chord, { through: 'ChordNotes' });
 
-Story.hasMany(Comment)
-Comment.belongsTo(Story)
+console.log('Key Magic methods: ', Object.keys(Key.prototype) );
+console.log('Chord Magic methods: ', Object.keys(Chord.prototype) );
+console.log('Note Magic methods: ', Object.keys(Note.prototype) );
 
 module.exports = {
   db,
-  Author,
-  Comment,
-  Story
+  Key,
+  Note,
+  Chord
 }

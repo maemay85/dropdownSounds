@@ -14,6 +14,7 @@ const SingleAuthor = () => {
   const singleAuthor = useSelector(selectSingleAuthor);
 
   const { name, bio, id, imageUrl } = singleAuthor.info;
+  console.log("single author info: ", singleAuthor.info)
   const { comments, stories } = singleAuthor
 
 
