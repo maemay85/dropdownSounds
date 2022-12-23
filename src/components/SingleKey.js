@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { CommentsList, StoriesList } from "./";
+import { CommentsList, StoriesList } from ".";
 import { useParams, Routes, Route, NavLink } from "react-router-dom";
 import { selectSingleAuthor, fetchSingleAuthor, fetchAuthorComments, fetchAuthorStories } from "../features/singleAuthor/singleAuthorSlice";
 

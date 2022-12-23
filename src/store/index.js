@@ -1,15 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import storiesSlice from "../features/stories/storiesSlice";
-import singleStorySlice from "../features/singleStory/singleStorySlice";
-import authorsSlice from "../features/authors/authorsSlice";
-import singleAuthorSlice from "../features/singleAuthor/singleAuthorSlice";
+import chordsSlice from "../features/chords/chordsSlice";
+import singleChordSlice from "../features/singleChord/singleChordSlice";
+import keysSlice from "../features/keys/keysSlice";
+import singleKeySlice from "../features/singleKey/singleKeySlice";
 
 const store = configureStore({
   reducer: {
-    stories: storiesSlice,
-    singleStory: singleStorySlice,
-    authors: authorsSlice,
-    singleAuthor: singleAuthorSlice,
+    chords: chordsSlice,
+    singleChord: singleChordSlice,
+    keys: keysSlice,
+    singleKey: singleKeySlice,
   },
 });
 

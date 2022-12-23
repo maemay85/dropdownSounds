@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import CommentsList from './CommentsList';
-import { selectSingleStory, fetchSingleStory } from "../features/singleStory/singleStorySlice";
+import { selectSingleStory, fetchSingleChord } from "../features/singleChord/singleChordSlice";
 
-const SingleStory = () => {
+const SingleKey = () => {
 
   const dispatch = useDispatch();
   const { storyId } = useParams();
@@ -12,7 +12,7 @@ const SingleStory = () => {
   const { content, comments, title } = singleStory;
 
   useEffect(()=> {
-    dispatch(fetchSingleStory(storyId))}, [dispatch]);
+    dispatch(fetchSingleChord(storyId))}, [dispatch]);
 
 
   return (
@@ -30,4 +30,4 @@ const SingleStory = () => {
 
 }
 
-export default SingleStory
+export default SingleKey
