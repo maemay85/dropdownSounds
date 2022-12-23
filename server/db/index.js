@@ -3,15 +3,33 @@ const Key = require('./Key')
 const Note = require('./Note')
 const Chord = require('./Chord')
 
-Key.belongsToMany(Chord, { through: 'KeyChords' });
-Chord.belongsToMany(Key, { through: 'KeyChords' });
+Note.belongsToMany(Chord, {
+  through: 'ChordNotes',
+  as: "chords",
+  foreignKey: "noteId"
+});
 
-Chord.belongsToMany(Note, { through: 'ChordNotes' });
-Note.belongsToMany(Chord, { through: 'ChordNotes' });
+Chord.belongsToMany(Note, {
+  through: 'ChordNotes',
+  as: "notes",
+  foreignKey: "chordId"
+});
 
-console.log('Key Magic methods: ', Object.keys(Key.prototype) );
-console.log('Chord Magic methods: ', Object.keys(Chord.prototype) );
-console.log('Note Magic methods: ', Object.keys(Note.prototype) );
+Chord.belongsToMany(Key, {
+  through: 'KeyChords',
+  as: "keys",
+  foreignKey: "chordId"
+});
+
+Key.belongsToMany(Chord, {
+  through: "KeyChords",
+  as: "chords",
+  foreignKey: "keyId"
+});
+
+
+
+
 
 module.exports = {
   db,

@@ -1,32 +1,32 @@
 import React, { useEffect } from "react";
-import { Navbar, AllStories, AllAuthors, SingleStory, SingleAuthor } from "./";
+import { Navbar, AllChords, AllKeys, SingleChord, SingleKey } from "./";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { fetchAuthorsAsync } from "../features/authors/authorsSlice";
-import { fetchStoriesAsync } from "../features/stories/storiesSlice";
+import { fetchKeysAsync } from "../features/keys/keysSlice";
+import { fetchChordsAsync } from "../features/chords/chordsSlice";
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAuthorsAsync());
-    dispatch(fetchStoriesAsync());
+    dispatch(fetchKeysAsync());
+    dispatch(fetchChordsAsync());
   }, [dispatch]);
 
   return (
     <div id="main">
       <div className="column container">
         <div id="header">
-          <h1>Readium</h1>
+          <h1>Dropdown Sounds</h1>
           <Navbar />
         </div>
       </div>
       <Routes>
-        <Route path="/stories" element={<AllStories />} />
-        <Route path="/authors" element={<AllAuthors />} />
-        <Route path="/stories/:storyId/*" element={<SingleStory />} />
-        <Route path="/authors/:authorId/*" element={<SingleAuthor />} />
-        <Route path="/" element={<AllStories />} />
+        <Route path="/chords" element={<AllChords />} />
+        <Route path="/keys" element={<AllKeys />} />
+        <Route path="/chords/:chordId/*" element={<SingleChord />} />
+        <Route path="/keys/:keyId/*" element={<SingleKey />} />
+        <Route path="/" element={<AllChords />} />
       </Routes>
     </div>
   );

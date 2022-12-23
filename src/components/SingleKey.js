@@ -1,52 +1,39 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { CommentsList, StoriesList } from ".";
-import { useParams, Routes, Route, NavLink } from "react-router-dom";
-import { selectSingleAuthor, fetchSingleAuthor, fetchAuthorComments, fetchAuthorStories } from "../features/singleAuthor/singleAuthorSlice";
+import { ChordsList } from ".";
+import { useParams } from "react-router-dom";
+import { fetchSingleKey, selectSingleKey } from "../features/singleKey/singleKeySlice";
 
 
 
-const SingleAuthor = () => {
+const SingleKey = () => {
 
 
-  const { authorId } = useParams();
+  const { keyId } = useParams();
 
-  const singleAuthor = useSelector(selectSingleAuthor);
+  const singleKey = useSelector(selectSingleKey);
+  const { chords, name } = singleKey
 
-  const { name, bio, id, imageUrl } = singleAuthor.info;
-  console.log("single author info: ", singleAuthor.info)
-  const { comments, stories } = singleAuthor
-
-
+  console.log("single key: ", singleKey)
+  console.log("single key chords: ", chords)
 
   const dispatch = useDispatch();
 
   useEffect(()=> {
-    dispatch(fetchSingleAuthor(authorId));
-    dispatch(fetchAuthorComments(authorId));
-    dispatch(fetchAuthorStories(authorId));
+    dispatch(fetchSingleKey(keyId));
   }, [dispatch])
 
   return (
-    <div id='single-author' className='column'>
-      <div id='single-author-detail' className='row'>
+    <div id='single-key' className='column'>
+      <div id='single-key-detail' className='row'>
         <div className='column mr1'>
-          <h1>{name}</h1>
-          <p>{bio}</p>
+          <h1>Key: {name}</h1>
         </div>
-        <img src={`/${imageUrl}`} />
-      </div>
-      <div id="single-author-nav">
-        <NavLink to={`/authors/${id}/comments`}>Comments</NavLink>
-        <NavLink to={`/authors/${id}/stories`}>Stories</NavLink>
       </div>
       <hr />
-      <Routes>
-        <Route path="/comments" element={<CommentsList comments={comments} />} />
-        <Route path="/stories" element={<StoriesList stories={stories} />} />
-      </Routes>
+        {chords && chords.length? <ChordsList chords={chords} /> : 'no chords here'}
     </div>
   )
 }
 
-export default SingleAuthor
+export default SingleKey

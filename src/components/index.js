@@ -1,8 +1,9 @@
 export { default as AllKeys } from "./AllKeys.js";
-export { default as AllStories } from "./AllStories.js";
+export { default as AllChords } from "./AllChords.js";
 export { default as App } from "./App.js";
-export { default as CommentsList } from "./CommentsList.js";
 export { default as Navbar } from "./Navbar.js";
-export { default as SingleAuthor } from "./SingleKey.js";
-export { default as SingleKey } from "./SingleStory.js";
-export { default as StoriesList } from "./StoriesList.js";
+export { default as SingleKey } from "./SingleKey.js";
+export { default as SingleChord } from "./SingleChord.js";
+export { default as ChordsList } from "./ChordsList.js";
+export { default as NotesList } from "./NotesList.js"
+

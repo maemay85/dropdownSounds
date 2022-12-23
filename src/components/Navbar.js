@@ -5,8 +5,10 @@ import { NavLink } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div id='navbar' className='row'>
-      <NavLink to ="/stories" className="active">Stories</NavLink>
-      <NavLink to ="/authors" className="active">Authors</NavLink>
+      <span>Select Key Dropdown</span>
+      <span>Complexity Toggle</span>
+      <span>Octave Toggle</span>
+      <span>Volume Slider</span>
     </div>
   )
 }

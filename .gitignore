@@ -6,6 +6,6 @@ coverage
 **.mp3
 **.m4a
 **.mp4
-server/audio/
+src/audio/
 public/bundle.js
 public/bundle.js.map

@@ -3,9 +3,10 @@ import axios from 'axios';
 
 const initialState = {};
 
-export const fetchSingleChord = createAsyncThunk('singleChord', async (id) => {
+export const fetchSingleChord = createAsyncThunk('singleChord', async (chordId) => {
   try {
-    const { data } = await axios.get(`/api/chords/${id}`);
+    console.log('chordId passed?', chordId)
+    const { data } = await axios.get(`/api/chords/${chordId}`);
     console.log(data, "data");
     return data;
   } catch (err) {
