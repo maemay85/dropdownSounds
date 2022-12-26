@@ -18,7 +18,12 @@ router.get('/:keyId', async (req, res, next) => {
     const key = await Key.findByPk(req.params.keyId, {
       include: [
         {
-          model: Chord, as: "chords"
+          model: Chord, as: "chords",
+          include: [
+            {
+              model: Note, as: "notes"
+            }
+          ]
         }
       ]
     })

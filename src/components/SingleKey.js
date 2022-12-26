@@ -24,14 +24,12 @@ const SingleKey = () => {
   }, [dispatch])
 
   return (
-    <div id='single-key' className='column'>
-      <div id='single-key-detail' className='row'>
-        <div className='column mr1'>
-          <h1>Key: {name}</h1>
-        </div>
-      </div>
-      <hr />
-        {chords && chords.length? <ChordsList chords={chords} /> : 'no chords here'}
+    <div id='single-key'>
+    <div className="column">
+      <h1>Key: {name}</h1>
+
+      {chords && chords.length? <ChordsList chords={chords} /> : 'no chords here'}
+     </div>
     </div>
   )
 }
