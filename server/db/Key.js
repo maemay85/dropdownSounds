@@ -1,5 +1,5 @@
 //eliminate this by adding musicalKey property to Chord model
-// oh yeah?
+// oh
 
 
 const Sequelize = require('sequelize')
