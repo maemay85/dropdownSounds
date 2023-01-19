@@ -7,22 +7,6 @@ const seed = async () => {
 
 const allNotes = ['c', 'cSharp', 'dFlat', 'd', 'dSharp', 'eFlat', 'e', 'f', 'fSharp', 'gFlat', 'g', 'gSharp', 'aFlat', 'a', 'aSharp', 'bFlat', 'b'];
 
-const triads = []
-
-allNotes.map((note) => {
-  triads.push(`${note}Maj`);
-  triads.push(`${note}Min`);
-  triads.push(`${note}Dim`);
-})
-
-const seventhChords = []
-allNotes.map((note) => {
-  seventhChords.push(`${note}Maj7`);
-  seventhChords.push(`${note}Min7`);
-  seventhChords.push(`${note}7`);
-  seventhChords.push(`${note}Min7Flat5`);
-})
-
 //  define the key of C for starters:
 
 const musicalKeys = [
