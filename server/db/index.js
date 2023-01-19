@@ -2,7 +2,7 @@ const db = require('./db')
 const Key = require('./Key')
 const Note = require('./Note')
 const Chord = require('./Chord')
-
+/*
 Note.belongsToMany(Chord, {
   through: 'ChordNotes',
   as: "chords",
@@ -26,7 +26,7 @@ Key.belongsToMany(Chord, {
   as: "chords",
   foreignKey: "keyId"
 });
-
+ */
 
 
 

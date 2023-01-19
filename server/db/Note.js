@@ -4,8 +4,9 @@ const db = require('./db')
 const Note = db.define('note', {
   name: Sequelize.STRING, //c
   audioUrl: Sequelize.STRING, //./public/audio/c2.mp3
-  octave: Sequelize.INTEGER //2
-})
+  octave: Sequelize.INTEGER,
+ }, { timestamps: false } //2
+)
 
 // associations:
 // belong to x number of keys

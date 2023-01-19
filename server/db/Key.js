@@ -7,6 +7,10 @@ const db = require('./db')
 
 const Key = db.define('key', {
   name: Sequelize.STRING,
-})
+  keyNotes: Sequelize.ARRAY(Sequelize.STRING),
+  triads: Sequelize.ARRAY(Sequelize.STRING),
+  seventhChords: Sequelize.ARRAY(Sequelize.STRING),
+
+}, { timestamps: false })
 
 module.exports = Key
