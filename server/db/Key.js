@@ -1,3 +1,6 @@
+//eliminate this by adding musicalKey property to Chord model
+
+
 const Sequelize = require('sequelize')
 const db = require('./db')
 

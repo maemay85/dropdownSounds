@@ -4,7 +4,7 @@ const db = require('./db')
 const Note = db.define('note', {
   name: Sequelize.STRING, //c
   audioUrl: Sequelize.STRING, //./public/audio/c2.mp3
-  octave: Sequelize.ENUM('2', '3') //2
+  octave: Sequelize.INTEGER //2
 })
 
 // associations:
