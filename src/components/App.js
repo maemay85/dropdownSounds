@@ -21,7 +21,7 @@ const App = () => {
       </div>
       <Routes>
         <Route path="/keys" element={<AllKeys />} />
-        <Route path="/keys/:keyId/*" element={<SingleKey />} />
+        <Route path="/keys/:keyName" element={<SingleKey />} />
         <Route path="/" element={<AllKeys />} />
       </Routes>
     </div>

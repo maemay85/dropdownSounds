@@ -7,11 +7,11 @@ const AllKeys = () => {
   const keys = useSelector(selectKeys);
   console.log(keys)
   return (
-    <div>
+    <div id="keyslist">
       {keys && keys.length
         ? keys.map((key) => (
-              <Link to={`/keys/${key.id}`}
-                   key={`All Keys: ${key.id}`}>
+              <Link to={`/keys/${key.name}`}
+                   key={`All Keys: ${key.name}`}>
                   <div className="key row">
                     <p>{key.name}</p>
                     </div>

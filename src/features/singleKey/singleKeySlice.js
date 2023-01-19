@@ -4,10 +4,9 @@ import axios from 'axios';
 const initialState = {
 };
 
-export const fetchSingleKey = createAsyncThunk('singleKey', async (keyId) => {
+export const fetchSingleKey = createAsyncThunk('singleKey', async (keyName) => {
   try {
-    const { data } = await axios.get(`/api/keys/${keyId}`);
-    console.log(data, "data");
+    const { data } = await axios.get(`/api/keys/${keyName}`);
     return data;
   } catch (err) {
     console.error("error fetching single key",err);

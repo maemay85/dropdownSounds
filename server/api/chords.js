@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Note, Chord} = require('../db')
+const {Chord} = require('../db')
 
 // GET /api/chords
 router.get('/', async (req, res, next) => {
@@ -13,15 +13,9 @@ router.get('/', async (req, res, next) => {
 })
 
 // GET /api/chords/:chordId
-router.get('/:chordId', async (req, res, next) => {
+router.get('/:chordName', async (req, res, next) => {
   try {
-    const chord = await Chord.findByPk(req.params.chordId, {
-      include: [
-        {
-          model: Note, as: "notes"
-        }
-      ]
-    })
+    const chord = await Chord.findOne({where: {name: req.params.chordName}})
     res.json(chord)
   }
   catch (error) {
