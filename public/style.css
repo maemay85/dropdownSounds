@@ -18,7 +18,7 @@ body {
 
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(90deg,  rgb(255, 205, 205),#fff);
+  background: rgb(255, 241, 241);
   background-attachment: fixed;
   letter-spacing: 0.03em;
 }
@@ -58,22 +58,31 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
   font-weight: normal;
   text-align: center;
-  border: solid 2px;
+  border: 1px none;
   border-radius: 50%;
   box-shadow: 0 .5rem .5rem  0 rgb(140, 96, 96);
 }
 
 #navbar {
   border: 1px none;
-  border-radius: 2rem;
+  border-radius: 10rem;
   width: 100%;
   margin-right: 5rem;
   height: 5rem;
-  background: linear-gradient(90deg,#fff,  rgb(255, 205, 205));
+  background: rgb(255, 210, 210);
   color: rgb(2, 2, 2);
   align-items: center;
   justify-content: space-evenly;
   box-shadow: 0 .5rem .5rem  0 rgb(140, 96, 96);
+}
+
+#navbar-content {
+  display: none;
+  position: absolute;
+}
+
+#navbar:hover #navbar-content {
+  display: block;
 }
 
 #keyslist {
@@ -110,6 +119,14 @@ h1, h2, h3, h4, h5 {
   suffix: ": ";
 }
 
+#noteslist {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 10rem;
+}
+
 #noteslist ul {
   list-style: chord-elements;
   text-indent: none;
@@ -122,14 +139,14 @@ h1, h2, h3, h4, h5 {
 #single-key {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
   padding: 4rem 0 4rem 0;
   margin: 0 15rem 10rem 15rem;
   text-transform: uppercase;
   border: solid 1px;
   border-radius: 50%;
-  box-shadow: 0 .5rem .5rem 0;
+  box-shadow: 0 .5rem .5rem 0 rgb(140, 96, 96);
 }
 
 /* classes */

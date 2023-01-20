@@ -1,7 +1,5 @@
 import React from "react";
 
-import NotesList from './NotesList';
-
 
 const ChordsList = ({ chords }) => {
   console.log('ChordsList:', chords)
@@ -9,13 +7,12 @@ const ChordsList = ({ chords }) => {
   return (
     <div id="chordslist">
       <ul>
-        <h2>Chords:</h2>
+        <h2>Triads:</h2>
         {chords.map(chord =>
-          <li key={chord.id}>
+          <li key={chord}>
 <div>
-              <h3>{chord.name} =>&nbsp;</h3>
-              { chord.notes && chord.notes.length ?
-                <NotesList notes={chord.notes} /> : 'no notes here'}
+              <h3>{chord}</h3>
+
           </div></li>)}
       </ul>
     </div>

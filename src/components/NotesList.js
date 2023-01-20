@@ -11,8 +11,8 @@ const NotesList = ({ notes }) => {
       <ul>
 
        {notes.map(note =>
-      <li key = {note.id}>
-        {note.name}
+      <li key = {note}>
+        {note}
       </li>
        )}
     </ul>

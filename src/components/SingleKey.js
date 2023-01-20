@@ -2,18 +2,17 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchSingleKey, selectSingleKey } from "../features/singleKey/singleKeySlice";
+import ChordsList from "./ChordsList";
+import NotesList from "./NotesList";
 
 
 
 const SingleKey = () => {
 
-
   const { keyName } = useParams();
-
   const singleKey = useSelector(selectSingleKey);
-
   const { name, keyNotes, triads, seventhChords } = singleKey
-
+  console.log("single key: ", name)
   const dispatch = useDispatch();
 
   useEffect(()=> {
@@ -22,15 +21,11 @@ const SingleKey = () => {
 
   return (
     <div id='single-key'>
-    <div className="column">
-      <h1>Key: {name}</h1>
-      <h2>Notes: </h2>
-      <h3>{keyNotes && keyNotes.length? keyNotes.map((note)=> `${note} `) : null}</h3>
-      <h2>Triads: </h2>
-      <h3>{triads && triads.length? triads.map((chord)=> `${chord} `) : null}</h3>
-      <h2>Seventh Chords: </h2>
-      <h3>{seventhChords && seventhChords.length? seventhChords.map((chord)=> `${chord} `) : null}</h3>
-     </div>
+
+      <h2>Key: <br/>{name}</h2>
+      {triads && triads.length ? <ChordsList chords={triads}/> : null}
+      {keyNotes && keyNotes.length ? <NotesList notes={keyNotes}/> : null}
+
     </div>
   )
 }
