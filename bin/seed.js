@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const {db, Note, Key, Chord} = require('../server/db')
+const {db, Note, Key, Chord, KeyNotes} = require('../server/db')
 
 const seed = async () => {
   await db.sync({force: true})
@@ -155,13 +155,20 @@ for(let i=0; i<14; ++i){
   await seventhChordCreator(i)
 }
 
+
+// associations:
+
+
+
+
   db.close()
   console.log(`
 
     Seeding successful!
 
-
-  `)
+    Magic Methods: \n
+  KeyNotes: \n
+  `, Object.keys(KeyNotes.prototype), "Notes: ", Object.keys(Note.prototype), "Chords: ", Object.keys(Chord.prototype))
 }
 
 seed().catch(err => {

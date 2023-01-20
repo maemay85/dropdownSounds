@@ -2,6 +2,22 @@ const db = require('./db')
 const Key = require('./Key')
 const Note = require('./Note')
 const Chord = require('./Chord')
+const KeyNotes = require('./KeyNotes')
+
+Note.belongsToMany(Key, {
+  through: KeyNotes,
+})
+
+Chord.belongsToMany(Note, {
+  through: KeyNotes,
+})
+
+Chord.belongsToMany(Key, {
+  through: KeyNotes,
+})
+
+
+
 /*
 Note.belongsToMany(Chord, {
   through: 'ChordNotes',
@@ -33,6 +49,7 @@ Key.belongsToMany(Chord, {
 
 module.exports = {
   db,
+  KeyNotes,
   Key,
   Note,
   Chord
