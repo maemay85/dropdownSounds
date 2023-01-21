@@ -155,10 +155,8 @@ for(let i=0; i<14; ++i){
   await seventhChordCreator(i)
 }
 
-
+console.log(musicalKeys)
 // associations:
-
-
 
 
   db.close()
@@ -166,9 +164,8 @@ for(let i=0; i<14; ++i){
 
     Seeding successful!
 
-    Magic Methods: \n
-  KeyNotes: \n
-  `, Object.keys(KeyNotes.prototype), "Notes: ", Object.keys(Note.prototype), "Chords: ", Object.keys(Chord.prototype))
+
+  `)
 }
 
 seed().catch(err => {
