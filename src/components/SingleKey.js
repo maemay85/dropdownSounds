@@ -22,8 +22,9 @@ const SingleKey = () => {
   return (
     <div id='single-key'>
 
-      <h2>Key: <br/>{name}</h2>
+      <h3>Key: <br/>{name}</h3>
       {triads && triads.length ? <ChordsList chords={triads}/> : null}
+      {seventhChords && seventhChords.length ? <ChordsList chords={seventhChords}/> : null}
       {keyNotes && keyNotes.length ? <NotesList notes={keyNotes}/> : null}
 
     </div>

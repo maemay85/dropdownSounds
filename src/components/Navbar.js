@@ -6,6 +6,12 @@ import { selectKeys } from '../features/keys/keysSlice';
 
 const Navbar = () => {
   const keys = useSelector(selectKeys);
+  const formatted = (str) => {
+    let formattedStr = str
+    if (str.includes('Flat')) formattedStr = str.replace('Flat', '♭')
+    if (str.includes('Sharp')) formattedStr = str.replace('Sharp', '♯')
+    return formattedStr
+  }
   return (
     <div id='navbar' className='row'>
       <span>Select Key</span>
@@ -15,7 +21,7 @@ const Navbar = () => {
               <Link to={`/keys/${key.name}`}
                    key={`All Keys: ${key.name}`}>
                   <div className="key row">
-                    <p>{key.name}</p>
+                    <p>{formatted(key.name)}</p>
                     </div>
               </Link>
           ))
