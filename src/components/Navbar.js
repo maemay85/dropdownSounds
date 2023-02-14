@@ -13,9 +13,9 @@ const Navbar = () => {
     return formattedStr
   }
   return (
-    <div id='navbar' className='row'>
+    <div id='navbar' className='dropdown row'>
       <span>Select Key</span>
-      <ul id='navbar-content'>
+      <ul className='dropdown-content'>
       {keys && keys.length
         ? keys.map((key) => (
               <Link to={`/keys/${key.name}`}
