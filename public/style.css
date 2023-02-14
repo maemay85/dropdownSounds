@@ -33,6 +33,49 @@ h1, h2, h3, h4, h5 {
   font-weight: normal;
 }
 
+/* Classes */
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content:hover {
+  display: block;
+
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Counter-styles */
+
+@counter-style key-degrees {
+  system: fixed;
+  symbols: I ii iii IV V vi vii;
+  suffix: ": ";
+}
+
+@counter-style chord-elements {
+  system: fixed;
+  symbols: Root Third Fifth Seventh Eleventh Thirteenth;
+  suffix: ": ";
+}
+
 /* ids */
 
 #app {
@@ -41,6 +84,7 @@ h1, h2, h3, h4, h5 {
 }
 
 #header {
+  margin-top: 2rem;
   width: 100%;
   height: 10rem;
   display: flex;
@@ -59,13 +103,13 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
   font-weight: normal;
   text-align: center;
-  border: 1px none;
+  border: none;
   border-radius: 50%;
   box-shadow: 0 .25rem .25rem  0 rgb(140, 96, 96);
 }
 
 #navbar {
-  border: 1px none;
+  border: none;
   border-radius: 10rem;
   width: 100%;
   margin-right: 5rem;
@@ -75,26 +119,6 @@ h1, h2, h3, h4, h5 {
   align-items: center;
   justify-content: space-evenly;
   box-shadow: 0 .25rem .25rem  0 rgb(140, 96, 96);
-}
-
-.dropdown {
-  display: inline-block;
-  position: relative;
-}
-
-span {
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  z-index: 1;
-}
-
-.dropdown-content:hover {
-  display: block;
-
 }
 
 #keyslist {
@@ -108,12 +132,6 @@ span {
   font-size: larger;
 }
 
-@counter-style key-degrees {
-  system: fixed;
-  symbols: I ii iii IV V vi vii;
-  suffix: ": ";
-}
-
 #chordslist {
   display: flex;
   flex-wrap: wrap;
@@ -125,11 +143,7 @@ span {
   text-indent: none;
 }
 
-@counter-style chord-elements {
-  system: fixed;
-  symbols: Root Third Fifth Seventh Eleventh Thirteenth;
-  suffix: ": ";
-}
+
 
 #noteslist {
   display: flex;
@@ -160,23 +174,3 @@ span {
   border-radius: 50%;
   box-shadow: 0 .5rem .5rem 0 rgb(140, 96, 96);
 }
-
-/* classes */
-
-.column {
-  width: fit-content;
-}
-
-.container {
-  margin-top: 2rem;
-  height: 100%;
-  width: 100%;
-}
-
-
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
-
