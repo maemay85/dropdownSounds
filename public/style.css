@@ -36,19 +36,23 @@ h1, h2, h3, h4, h5 {
 /* Classes */
 
 .dropdown {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: row;
   position: relative;
 }
 
-.dropdown-content {
+
+.dropdown-content{
   display: none;
   position: absolute;
-  z-index: 1;
 }
 
-.dropdown-content:hover {
-  display: block;
-
+.dropdown:hover .dropdown-content{
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 .column {

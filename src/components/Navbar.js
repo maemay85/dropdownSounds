@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { selectKeys } from '../features/keys/keysSlice';
 
@@ -13,20 +13,20 @@ const Navbar = () => {
     return formattedStr
   }
   return (
-    <div id='navbar' className='dropdown row'>
+    <div id='navbar' className='dropdown'>
       <span>Select Key</span>
-      <ul className='dropdown-content'>
+      <div className='dropdown-content'>
+      <ul>
       {keys && keys.length
         ? keys.map((key) => (
               <Link to={`/keys/${key.name}`}
                    key={`All Keys: ${key.name}`}>
-                  <div className="key row">
-                    <p>{formatted(key.name)}</p>
-                    </div>
+
+                    {formatted(key.name)}
               </Link>
           ))
         : null}
-      </ul>
+      </ul></div>
       <span>Complexity Toggle</span>
       <span>Octave Toggle</span>
       <span>Volume Slider</span>
