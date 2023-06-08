@@ -30,6 +30,8 @@ for(let i=0; i<6; ++i){
   }
   musicalKeys.push(newKey)
  }
+ 
+ 
 
 // add the keys with sharps:
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Navbar, AllKeys, SingleKey } from "./";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchKeysAsync } from "../features/keys/keysSlice";
 
@@ -15,7 +15,9 @@ const App = () => {
     <div id="main">
       <div className="column container">
         <div id="header">
-          <h1>Dropdown Sounds</h1>
+          <Link to={'/'}>
+            <h1>Dropdown Sounds</h1>
+          </Link>
           <Navbar />
         </div>
       </div>

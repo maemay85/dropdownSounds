@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { selectKeys } from '../features/keys/keysSlice';
@@ -12,8 +12,11 @@ const Navbar = () => {
     if (str.includes('Sharp')) formattedStr = str.replace('Sharp', '♯')
     return formattedStr
   }
+
+
   return (
-    <div id='navbar' className='dropdown'>
+    <div id='navbar'>
+      <div className='dropdown'>
       <span>Select Key</span>
       <div className='dropdown-content'>
       <ul>
@@ -27,7 +30,7 @@ const Navbar = () => {
           ))
         : null}
       </ul></div>
-      <span>Complexity Toggle</span>
+      </div>
       <span>Octave Toggle</span>
       <span>Volume Slider</span>
     </div>
